@@ -1,40 +1,46 @@
 <h2>Registration Form</h2>
-<div id="formDiv">
-  
-  <form [formGroup]="formdata" (ngSubmit)="onFormSubmit(formdata.value)">
-  <div class="form-group" id="first-form-group">
+<div id="formDiv">       <!-- Div to make the form center -->
+
+  <!-- formGroup for taking all inputs and will be submitted on clicking submit button -->
+  <form [formGroup]="formData" (ngSubmit)="onFormSubmit(formData.value)">
+    <!-- first name form control  -->
+  <div class="form-group">
     <div class="form-group-div1">
     <label for="FirstName">First Name :</label>
     <input type="text" class="form-control" id="FirstName" placeholder="Enter First Name" formControlName="FirstName">
     </div>
-    <div class="form-group-div2"><span></span>
-      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['required'] && FirstName.touched">*Enter First Name</span>
-      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['minlength'] && FirstName.touched">*Enter at least 3 characters</span>
-      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['maxlength'] && FirstName.touched">*Enter below 256 characters</span>
+    <!-- this div display's the error for firstName -->
+    <div ><span></span> <!-- Every empty span is given to get a space between for error message i.e, to get exact under input field -->
+      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['required'] && (FirstName.dirty || FirstName.touched)">*Enter First Name!</span>
+      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['minlength'] && (FirstName.dirty || FirstName.touched)">*Enter at least 3 characters!</span>
+      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['maxlength'] && (FirstName.dirty || FirstName.touched)">*Enter below 256 characters!</span>
     </div>
   </div>
+  <!-- Last name form control  -->
   <div class="form-group">
     <div>
     <label for="LastName">Last Name :</label>
     <input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" formControlName="LastName">
   </div>
-  <div><span></span>
-    <span class="error-text" *ngIf="LastName && LastName.errors?.['required'] && LastName.touched">*Enter Last Name!</span>
-    <span class="error-text" *ngIf="LastName && LastName.errors?.['minlength'] && LastName.touched">*Enter at least 3 characters</span>
-    <span class="error-text" *ngIf="LastName && LastName.errors?.['maxlength'] && LastName.touched">*Enter below 256 characters</span>
+  <!-- this div display's the error for lastName -->
+  <div>
+    <span></span>
+    <span class="error-text" *ngIf="LastName && LastName.errors?.['required'] && (LastName.dirty || LastName.touched)">*Enter Last Name!</span>
+    <span class="error-text" *ngIf="LastName && LastName.errors?.['minlength'] && (LastName.dirty || LastName.touched)">*Enter at least 3 characters!</span>
+    <span class="error-text" *ngIf="LastName && LastName.errors?.['maxlength'] && (LastName.dirty || LastName.touched)">*Enter below 256 characters!</span>
 
   </div>
   </div>
-
+  <!-- user Name form control -->
   <div class="form-group">
     <div>
     <label for="UserName">User Name :</label>
     <input type="text" class="form-control" id="UserName" placeholder="Enter User Name" formControlName="UserName" >
     </div>
-  <div><span></span><span class="error-text" *ngIf="UserName && UserName.invalid && UserName.touched">*Invalid User Name</span></div>
+  <div><span></span><span class="error-text" *ngIf="UserName && UserName.invalid && (UserName.dirty || UserName.touched)">*Invalid User Name!</span></div>
 
   </div>
-
+  <!-- Age form control-->
   <div class="form-group">
     <div class="AddData">
     <label class="form-control" for="Age">Age :</label>
@@ -42,45 +48,51 @@
     </div>
   <div>
     <span></span>
-    <span class="error-text" *ngIf="Age && Age.errors?.['required'] && Age.touched">*required</span>
-    <span class="error-text" *ngIf="Age && Age.errors?.['min'] && Age.touched">*Age cannot be less than 0</span>
-    <span class="error-text" *ngIf="Age && Age.errors?.['max'] && Age.touched">*Age cannot be more than 999</span>
+    <span class="error-text" *ngIf="Age && Age.errors?.['required'] && (Age.dirty || Age.touched)">*required!</span>
+    <span class="error-text" *ngIf="Age && Age.errors?.['min'] && (Age.dirty || Age.touched)">*Age cannot be less than 0!</span>
+    <span class="error-text" *ngIf="Age && Age.errors?.['max'] && (Age.dirty || Age.touched)">*Age cannot be more than 999!</span>
   </div>
 
   </div>
-
+<!-- email form form control -->
   <div class="form-group">
     <div>
     <label for="InputEmail">Email address :</label>
     <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" formControlName="emailid">
     </div>
-    <div><span></span><span class="error-text" *ngIf="emailid&& emailid.invalid && emailid.touched">*Email is Invalid!</span></div>
+    <div><span></span><span class="error-text" *ngIf="emailid&& emailid.invalid && (emailid.dirty || emailid.touched)">*Email is Invalid!</span></div>
   </div>
-
+<!-- phone no form form control -->
   <div class="form-group">
     <div>
     <label class="form-control" for="Phoneno">Phone No :</label>
     <input type="tel" class="form-control" id="Phoneno" placeholder="Enter Phone No" formControlName="Phoneno">
     </div>
-    <div><span></span><span class="error-text" *ngIf="Phoneno && Phoneno.invalid && Phoneno.touched">*Invalid Phone no.!</span></div>
+    <div><span></span><span class="error-text" *ngIf="Phoneno && Phoneno.invalid && (Phoneno.dirty || Phoneno.touched)">*Invalid Phone no!</span></div>
   </div>
-
+<!-- Additional Data form form control -->
   <div class="form-group">
     <div>
     <label class="form-control" for="AdditionalData">Additional Data :</label>
     <input type="text" class="form-control" id="AdditionalData" placeholder="Enter Additional Data" formControlName="AdditionalData">
     </div>
-    <div><span></span><span class="error-text" *ngIf=""></span></div>
+    <div><span></span><span class="error-text" *ngIf="AdditionalData && AdditionalData.invalid && (AdditionalData.dirty || AdditionalData.touched)">*required!</span></div>
   </div>
-
-  <app-inputselector (sendAdditionalValue)="getAdditionalValue($event)"></app-inputselector>
-
+  <!-- fieldset to decorate component -->
+<fieldset [disabled]="formData.invalid">
+  <legend>Additional Data Value</legend>
+  <!-- app-inputselector component's selector tag -->
+  <app-inputselector (sendAdditionalValue)="getAdditionalValue($event)" ></app-inputselector>
+</fieldset>
+<!-- to display the data coming from Additional Data fields  -->
   <div class="form-group">
-     <div>Given label:&nbsp;{{formdata.value.AdditionalData}}</div>
+     <div>Given Label:&nbsp;{{formData.value.AdditionalData}}</div><br>
     <div>Given Value:&nbsp;{{AdditionalValue}}</div>
   </div>
-
+<!-- buttons for submitting and reset  -->
 <div>  <button type="reset" class="btn">Reset</button>
-  <button type="submit" class="btn" [disabled]="formdata.invalid">Submit</button></div>
+  <button type="submit" class="btn" [disabled]="formData.invalid || AdditionalValue==''">Submit</button></div>
 </form>
 </div>
+
+<router-outlet ></router-outlet>

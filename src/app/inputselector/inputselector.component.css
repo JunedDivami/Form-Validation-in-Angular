@@ -1,16 +1,24 @@
+/* styles for form  */
 .form{
     display: flex;
     justify-content: space-between;
-    /* border: 1px solid black; */
     padding: 5px 10px;
+    /* align-items: center; */
 }
-
+/* error msg styling */
 .error-text{
     color: red;
     font-family: sans-serif;
     font-size: small;
     text-decoration: solid;
 }
+/* adding cursor as pointer for selector */
 #selector{
-    padding: 0px;
+    cursor: pointer;
+}
+/* styling input form on focus  */
+input:focus{
+    border: solid red;
+    /* outline: solid red; */
+    background-color: #ccc;
 }
