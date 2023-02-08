@@ -1,0 +1,17 @@
+<fieldset [formGroup]="selectorForm" class="form">
+    <legend>Additional Data</legend>
+    <div >
+        
+        <input type="text" formControlName="AdditionalValue" (focusout)="onFocusOut($event)" [ngModel]="input">
+        <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid && AdditionalValue.touched">*Invalid input</div>
+
+    </div>
+    <select name="selector" id="selector" (change)="AfterSelection($event)">
+        <option value="Number">Number</option>
+        <option value="String">String</option>
+        <option value="Boolean">Boolean</option>
+        <option value="HexaCode">HexaCode</option>
+        <option value="Binary">Binary</option>
+    </select>
+</fieldset>
+<!-- <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid && AdditionalValue.touched">Invalid Number</div> -->

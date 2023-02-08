@@ -1,0 +1,16 @@
+.form{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    padding: 5px 10px;
+}
+
+.error-text{
+    color: red;
+    font-family: sans-serif;
+    font-size: small;
+    text-decoration: solid;
+}
+#selector{
+    padding: 0px;
+}
