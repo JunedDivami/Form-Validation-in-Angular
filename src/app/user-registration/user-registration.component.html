@@ -1,0 +1,113 @@
+<h2>Registration Form</h2>
+<div id="formDiv">       <!-- Div to make the form center -->
+
+  <!-- formGroup for taking all inputs and will be submitted on clicking submit button -->
+  <form [formGroup]="formData" (ngSubmit)="onFormSubmit(formData.value)">
+    <!-- first name form control  -->
+  <div class="form-group">
+    <div class="form-group-div1">
+    <label for="FirstName">First Name :</label>
+    <input type="text" class="form-control" id="FirstName" placeholder="Enter First Name" formControlName="FirstName">
+    </div>
+    <!-- this div display's the error for firstName -->
+    <div ><span></span> <!-- Every empty span is given to get a space between for error message i.e, to get exact under input field -->
+      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['required'] && (FirstName.dirty || FirstName.touched)">*Enter First Name!</span>
+      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['minlength'] && (FirstName.dirty || FirstName.touched)">*Enter at least 3 characters!</span>
+      <span class="error-text" *ngIf="FirstName && FirstName.errors?.['maxlength'] && (FirstName.dirty || FirstName.touched)">*Enter below 256 characters!</span>
+    </div>
+  </div>
+  <!-- Last name form control  -->
+  <div class="form-group">
+    <div>
+    <label for="LastName">Last Name :</label>
+    <input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" formControlName="LastName">
+  </div>
+  <!-- this div display's the error for lastName -->
+  <div>
+    <span></span>
+    <span class="error-text" *ngIf="LastName && LastName.errors?.['required'] && (LastName.dirty || LastName.touched)">*Enter Last Name!</span>
+    <span class="error-text" *ngIf="LastName && LastName.errors?.['minlength'] && (LastName.dirty || LastName.touched)">*Enter at least 3 characters!</span>
+    <span class="error-text" *ngIf="LastName && LastName.errors?.['maxlength'] && (LastName.dirty || LastName.touched)">*Enter below 256 characters!</span>
+    <!-- <span class="error-text" *ngIf="LastName && LastName.errors?.['pattern'] && (LastName.dirty || LastName.touched)">*Invalid name!</span> -->
+
+  </div>
+  </div>
+  <!-- user Name form control -->
+  <div class="form-group">
+    <div>
+    <label for="UserName">User Name :</label>
+    <input type="text" class="form-control" id="UserName" placeholder="Enter User Name" formControlName="UserName" >
+    </div>
+  <div><span></span><span class="error-text" *ngIf="UserName && UserName.invalid && (UserName.dirty || UserName.touched)">*Invalid User Name!</span></div>
+
+  </div>
+  <!-- Age form control-->
+  <div class="form-group">
+    <div class="AddData">
+    <label class="form-control" for="Age">Age :</label>
+    <input type="number" class="form-control" id="Age" placeholder="Enter Age" formControlName="Age">
+    </div>
+  <div>
+    <span></span>
+    <span class="error-text" *ngIf="Age && Age.errors?.['required'] && (Age.dirty || Age.touched)">*required!</span>
+    <span class="error-text" *ngIf="Age && Age.errors?.['min'] && (Age.dirty || Age.touched)">*Age cannot be less than 0!</span>
+    <span class="error-text" *ngIf="Age && Age.errors?.['max'] && (Age.dirty || Age.touched)">*Age cannot be more than 999!</span>
+  </div>
+
+  </div>
+<!-- email form form control -->
+  <div class="form-group">
+    <div>
+    <label for="InputEmail">Email address :</label>
+    <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" formControlName="emailid">
+    </div>
+    <div><span></span><span class="error-text" *ngIf="emailid&& emailid.invalid && (emailid.dirty || emailid.touched)">*Email is Invalid!</span></div>
+  </div>
+<!-- phone no form form control -->
+  <div class="form-group">
+    <div>
+    <label class="form-control" for="Phoneno">Phone No :</label>
+    <input type="tel" class="form-control" id="Phoneno" placeholder="Enter Phone No" formControlName="Phoneno">
+    </div>
+    <div><span></span><span class="error-text" *ngIf="Phoneno && Phoneno.invalid && (Phoneno.dirty || Phoneno.touched)">*Invalid Phone no!</span></div>
+  </div>
+<!-- Additional Data form form control -->
+  <!-- <div class="form-group">
+    <div>
+    <label class="form-control" for="AdditionalData">Additional Data :</label>
+    <input type="text" class="form-control" id="AdditionalData" placeholder="Enter Additional Data" formControlName="AdditionalData">
+    </div>
+    <div><span></span><span class="error-text" *ngIf="AdditionalData && AdditionalData.invalid && (AdditionalData.dirty || AdditionalData.touched)">*required!</span></div>
+  </div> -->
+  <!-- fieldset to decorate component -->
+<fieldset [disabled]="formData.invalid">
+  <legend>Additional Data Labels</legend>
+  <!-- app-inputselector component's selector tag -->
+  <div *ngFor="let n of AddComponentFun(buttonCount);">
+    <div class="form-group" id="additionalDataField">
+      <div>
+      <label class="form-control" for="AdditionalData">Additional Data :</label>
+      <input type="text" class="form-control" id="AdditionalData" placeholder="Enter Additional Data" formControlName="AdditionalData">
+      </div>
+      <div><span></span><span class="error-text" *ngIf="AdditionalData && AdditionalData.invalid && (AdditionalData.dirty || AdditionalData.touched)">*required!</span></div>
+    </div>
+  <app-inputselector (sendAdditionalValue)="getAdditionalValue($event)" ></app-inputselector>
+  </div>
+  <div class="PlusMinusButtons">
+    <button type="button" (click)="AddAdditionalDataIncrement()">+</button>
+    <button type="button" (click)="AddAdditionalDataDecrement()" [disabled]="r==false">-</button>
+  </div>
+</fieldset>
+<!-- to display the data coming from Additional Data fields  -->
+  <fieldset class="form-group">
+    <legend>Additional Data Values</legend>
+    <div *ngFor="let n of AddComponentFun(buttonCount);" class="AddAdditionalDataValuesFiled">
+     <div>Given Label-{{buttonCount}}:&nbsp;{{formData.value.AdditionalData}}</div>
+    <div>Given Value-{{buttonCount}}:&nbsp;{{AdditionalValue}}</div>
+    </div>
+  </fieldset>
+<!-- buttons for submitting and reset  -->
+<div>  <button type="reset" class="btn">Reset</button>
+  <button type="submit" class="btn" [disabled]="formData.invalid || AdditionalValue==''">Submit</button></div>
+</form>
+</div>

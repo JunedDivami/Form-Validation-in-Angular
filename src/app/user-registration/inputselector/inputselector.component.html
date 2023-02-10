@@ -1,7 +1,7 @@
 <!-- This is a form contains selector and input which takes specific type of input -->
 <form [formGroup]="selectorForm" class="form">
     <!-- <legend>Additional Data</legend> -->
-    <select name="selector" id="selector" (change)="AfterSelection($event)"  tabindex="0">  <!--(keyup.enter)="selectedOption($event)"-->
+    <select name="selector" id="selector" (change)="AfterSelection($event)"  >  <!--(keyup.enter)="selectedOption($event)"-->
         <option value="Number">Number</option>
         <option value="String">String</option>
         <option value="Boolean">Boolean</option>
@@ -10,7 +10,7 @@
     </select>
     <div >
         <!-- input field to get the additional value  -->
-        <input type="text" formControlName="AdditionalValue" placeholder="Enter Additional value" (focusout)="onFocusOut($event)" [ngModel]="input" tabindex="1">
+        <input type="text" formControlName="AdditionalValue" placeholder="Enter Additional value" (focusout)="onFocusOut($event)" >
         <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid && (AdditionalValue.touched || AdditionalValue.dirty)">{{AdditionalValueError}}</div>
 
     </div>

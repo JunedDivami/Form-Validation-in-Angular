@@ -9,7 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms'
 export class InputselectorComponent {
   @Output() sendAdditionalValue = new EventEmitter<string>();
 option:string = 'Number';
-input:string = '';
+// input:string = '';
 AdditionalValueError = '';
 
 numValidate:any = "^[0-9]*$";
@@ -23,17 +23,18 @@ hexValidate = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{6})$"
   })
 
   onFocusOut(inp:any){ // on focus out from input field this function will be triggered
-    this.input = inp.target.value; // getting the input value
-    console.log(this.input);
+    //this.input = inp.target.value; // getting the input value
+    // console.log(this.input);
     this.inputOptionValidating(); // upon input focus out calling the validating function
   }
 
   AfterSelection(selected_option:any){ // After the option is selected from given options in selector tag, this function will be invoked and gets the selected option value
     this.option = selected_option.target.value;
-    this.input = ''; // initially clearing the input field upon option change
+    //this.input = ''; // initially clearing the input field upon option change
     this.AdditionalValue?.clearValidators(); //removing all Validators upon option change
-    this.AdditionalValueError = '';
-    console.log(this.option);
+    console.log(this.AdditionalValue?.value);
+    this.AdditionalValue?.setValue('');
+
     this.inputOptionValidating(); //upon option change calling the validation function
   }
 
@@ -73,7 +74,7 @@ hexValidate = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{6})$"
     //sending additional data to be parent component using @output() and EventEmitter
       if(this.AdditionalValue?.['status'] == 'VALID'){
         // console.log("working pass the data");
-        this.sendAdditionalValue.emit(this.input); //emitting the input value which should be send upon true of given if condition
+        this.sendAdditionalValue.emit(this.AdditionalValue?.value || ""); //emitting the input value which should be send upon true of given if condition
       }
       else{this.sendAdditionalValue.emit('');} // if the status of the form is invalid then the empty string is send to be displayed in parent component
     }
