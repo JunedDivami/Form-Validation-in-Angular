@@ -14,8 +14,12 @@ export class CrudHttpService {
     this.serviceURL = "http://localhost:3000/users"
    }
 
-   getAllUsersFromService(FormData:any) : Observable<any>{
-    return this.http.get<any>(this.serviceURL);
+   getUserFromService(id:any) : Observable<any>{
+    return this.http.get<any>(this.serviceURL+"/"+id);
+   }
+
+   getAllUserFromService() : Observable<any[]>{
+    return this.http.get<any[]>(this.serviceURL);
    }
 
    postDataFromService(FormData:any) : Observable<any>{

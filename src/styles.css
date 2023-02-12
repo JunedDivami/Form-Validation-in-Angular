@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* global styles for all buttons on hover  */
+
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
 button:hover{
     background-color: black;
     color: white;

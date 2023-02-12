@@ -1,44 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 20,
-      "Email": "juned@gmail.com",
-      "Phoneno": "6300684065",
-      "Date": "2023-02-12",
-      "AdditionalDate": [
-        {
-          "GivenLabel": "boolean",
-          "GivenValue": 0
-        }
-      ]
-    },
-    {
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 20,
-      "emailid": "juned@gmail.com",
-      "Phoneno": "6300684065",
-      "Date": "2023-02-10",
-      "AdditionalData": "Juned",
-      "id": 2
-    },
-    {
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 20,
-      "emailid": "juned@gmail.com",
-      "Phoneno": "6300684065",
-      "Date": "2023-02-12",
-      "AdditionalData": "string",
-      "id": 3
-    },
-    {
       "FirstName": "Syed",
       "LastName": "Juned",
       "UserName": "Juned08",
@@ -60,7 +22,27 @@
         "0",
         "0101"
       ],
-      "id": 4
+      "id": 1
+    },
+    {
+      "FirstName": "Syed",
+      "LastName": "Juned",
+      "UserName": "Juned08",
+      "Age": 80,
+      "emailid": "juned@gmail.com",
+      "Phoneno": "6300684065",
+      "Date": "2023-02-13",
+      "AdditionalData": [
+        "boolean",
+        "boolean",
+        "boolean"
+      ],
+      "AdditionalValue": [
+        "10",
+        "10",
+        "10"
+      ],
+      "id": 2
     }
   ]
 }

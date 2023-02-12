@@ -1,3 +1,7 @@
+/* @import 'ag-grid-community/styles/ag-grid.css'; */
+/* @import 'ag-grid-community/styles/ag-theme-alpine.css'; */
+
+
 /* styling the div to bring in middle and adding the styles given below  */
 
 .main--div{
@@ -41,4 +45,12 @@ h4{
     text-align: center;
     font-family: sans-serif;
     color: green;
+}
+
+.agGrid{
+    
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+     
 }

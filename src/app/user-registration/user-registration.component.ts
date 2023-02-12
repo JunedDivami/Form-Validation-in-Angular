@@ -64,7 +64,7 @@ export class UserRegistrationComponent {
         console.log(res);
         //this.submittedData = res;
         this.router.navigate(['display-component'],{
-          state: { submittedData : res },
+          state: { submittedData : res.id },
           // relativeTo: this.activeroute
         });
       },err => {

@@ -9,6 +9,7 @@ import { InputselectorComponent } from './user-registration/inputselector/inputs
 import { DisplaydataComponent } from './displaydata/displaydata.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
