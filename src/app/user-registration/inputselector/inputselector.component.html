@@ -1,5 +1,6 @@
 <!-- This is a form contains selector and input which takes specific type of input -->
-<form [formGroup]="selectorForm" class="form">
+<form [formGroup]="selectorForm" class="form" >
+    <!-- <div *ngFor="let n of AddComponentFun(1); let ind=index"> -->
     <!-- <legend>Additional Data</legend> -->
     <select name="selector" id="selector" (change)="AfterSelection($event)"  >  <!--(keyup.enter)="selectedOption($event)"-->
         <option value="Number">Number</option>
@@ -10,10 +11,10 @@
     </select>
     <div >
         <!-- input field to get the additional value  -->
-        <input type="text" formControlName="AdditionalValue" placeholder="Enter Additional value" (focusout)="onFocusOut($event)" >
-        <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid && (AdditionalValue.touched || AdditionalValue.dirty)">{{AdditionalValueError}}</div>
+        <input type="text" formControlName="AdditionalValue" placeholder="Enter Additional value" id={{ind}} (focusout)="onFocusOut($event)" >
+        <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid &&  AdditionalValue.dirty">{{AdditionalValueError}}</div>
 
     </div>
-    
+    <!-- </div> -->
 </form>
 <!-- <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid && AdditionalValue.touched">Invalid Number</div> -->

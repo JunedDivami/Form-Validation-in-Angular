@@ -1,11 +1,18 @@
 /* styling the div to bring in middle and adding the styles given below  */
-div{
+
+.main--div{
+    display: flex;
+    margin: 0px auto;
+    width: 80vw;
+}
+
+.main--div__leftAside, .main--div__rightAside{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     /* align-items: center; */
-    width: 30vw;
-    margin: 0px auto;
+    width: 40vw;
+    
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border: 2px solid green;
     padding: 5px;

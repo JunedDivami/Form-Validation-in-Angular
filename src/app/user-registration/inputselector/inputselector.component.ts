@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 
 @Component({
@@ -7,13 +7,15 @@ import {FormControl, FormGroup, Validators} from '@angular/forms'
   styleUrls: ['./inputselector.component.css']
 })
 export class InputselectorComponent {
+  @Input() ind:number = 0;
   @Output() sendAdditionalValue = new EventEmitter<string>();
 option:string = 'Number';
 // input:string = '';
 AdditionalValueError = '';
+AdditionalDataArray:any = [];
 
 numValidate:any = "^[0-9]*$";
-stringValidate = "^[a-zA-Z]+$";
+stringValidate = "^[a-zA-Z ]+$";
 boolValidate = "^(True|False|TRUE|FALSE|true|false|0|1)$";
 binaryValidate = "^[0*1*]*[1*0*]*"
 hexValidate = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{6})$"
