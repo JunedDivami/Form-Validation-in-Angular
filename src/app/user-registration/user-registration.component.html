@@ -86,13 +86,13 @@
   <div *ngFor="let n of AddComponentFun(buttonCount); let in=index">
     <div class="form-group" id="additionalDataField">
       <div>
-      <label class="form-control" for="AdditionalData">Additional Data :</label>
-      <input type="text" class="form-control" id="AdditionalData" placeholder="Enter Additional Data" formControlName="AdditionalData" (input)="sortAdditionalData(in)">
+      <label class="form-control" for="AdditionalData">{{in+1}}.Additional Data :</label>
+      <input type="text" class="form-control" id="AdditionalData" placeholder="Enter Additional Data" formControlName="AdditionalData" (input)="sortAdditionalData(in)"  (focus)="sortAdditionalData(in)">
       </div>
       <div><span></span><span class="error-text" *ngIf="AdditionalData && AdditionalData.invalid && (AdditionalData.dirty || AdditionalData.touched)">*required!</span></div>
     </div>
-  <app-inputselector  (sendAdditionalValue)="getAdditionalValue($event)" [ind]="buttonCount" ></app-inputselector>
   </div>
+  <app-inputselector  (sendAdditionalValue)="getAdditionalValue($event)" [ind]="buttonCount" ></app-inputselector>
   <div class="error-text" *ngIf="buttonCount<3 && AdditionalData && AdditionalData.touched">*Minimum three fields required</div>
   <div class="PlusMinusButtons">
     <button type="button" (click)="AddAdditionalDataIncrement()">+</button>
@@ -104,7 +104,7 @@
     <legend>Additional Data Values</legend>
     <div *ngFor="let n of AddComponentFun(buttonCount); let in=index" class="AddAdditionalDataValuesFiled">
      <div>Given Label-{{in+1}}:&nbsp;{{AddDataArray[in]}}</div>
-    <div>Given Value-{{in+1}}:&nbsp;{{AdditionalValue}}</div>
+    <div>Given Value-{{in+1}}:&nbsp;{{AdditionalValueArray[in]}}</div>
     </div>
   </fieldset>
 <!-- buttons for submitting and reset  -->

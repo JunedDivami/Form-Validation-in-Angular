@@ -45,70 +45,22 @@
       "Age": 20,
       "emailid": "juned@gmail.com",
       "Phoneno": "6300684065",
-      "Date": "2023-02-19",
-      "AdditionalData": "JD",
-      "AdditionalValue": "08",
-      "id": 4
-    },
-    {
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 20,
-      "emailid": "juned@gmail.com",
-      "Phoneno": "6300684065",
-      "Date": "2023-02-12",
-      "AdditionalData": "boolean",
-      "AdditionalValue": "11",
-      "id": 5
-    },
-    {
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 22,
-      "emailid": "juned@gmail.com",
-      "Phoneno": "6300684065",
       "Date": "2023-02-12",
       "AdditionalData": [
-        "boolean",
+        "number",
         "String",
-        "number"
-      ],
-      "AdditionalValue": "10",
-      "id": 6
-    },
-    {
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 20,
-      "emailid": "juned@gmail.com",
-      "Phoneno": "6300684065",
-      "Date": "2023-02-12",
-      "AdditionalData": [
-        "hello",
-        "welcome",
-        "Bye"
-      ],
-      "AdditionalValue": "12",
-      "id": 7
-    },
-    {
-      "FirstName": "Syed",
-      "LastName": "Juned",
-      "UserName": "Juned08",
-      "Age": 20,
-      "emailid": "juned@gmail.com",
-      "Phoneno": "6300684065",
-      "Date": "2023-02-12",
-      "AdditionalData": [
+        "HexaCode",
         "boolean",
-        "string",
-        "number"
+        "binary"
       ],
-      "AdditionalValue": "1",
-      "id": 8
+      "AdditionalValue": [
+        "10",
+        "Hello welcome Home",
+        "#ffffff",
+        "0",
+        "0101"
+      ],
+      "id": 4
     }
   ]
 }

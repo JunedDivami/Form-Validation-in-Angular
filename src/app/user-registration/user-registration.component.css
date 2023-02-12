@@ -10,7 +10,7 @@ form{
     row-gap: 4vh;
     width: 500px;
     padding: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: sans-serif;
 }
 
 /* every internal div's of form */

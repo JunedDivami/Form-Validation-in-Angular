@@ -12,7 +12,7 @@ import { InputselectorComponent } from './inputselector/inputselector.component'
 export class UserRegistrationComponent {
  
   today = new Date();
-  submittedData :any;
+  submittedData :any = [];
   AdditionalValue:any; // variable to get the Additional data's input-field value from other component and display in {{html}}
   namepattern = /^[a-zA-Z]+[a-zA-Z]$/; //name pattern regex to validate name input field
   formData = new FormGroup({ // formData is Form group name which contains respective form-controls and adding validators to each to validate respective input fields
@@ -51,7 +51,7 @@ export class UserRegistrationComponent {
     // console.log(this.formData);
     this.submittedData = this.formData.value;
     this.submittedData["AdditionalData"] = this.AddDataArray;
-    this.submittedData["AdditionalValue"]=this.AdditionalValue;
+    this.submittedData["AdditionalValue"]=this.AdditionalValueArray;
     //this.submittedData = [this.formData.value,this.AdditionalValue]; //sending the values of the forms which contains the data
     
     //routing to the other component with the data
@@ -76,9 +76,11 @@ export class UserRegistrationComponent {
   }
 
 
-
+AdditionalValueArray:any=[];
   getAdditionalValue(event:any){ //this function is passed by @output event emmiter from inputselector-component which get the input field data.
     this.AdditionalValue = event; //this gives the data to AdditionalValue variable which is used to show in html page
+    this.AdditionalValueArray[this.AdditionalValue.index] = this.AdditionalValue.value;
+    console.log(this.AdditionalValue)
   }
   buttonCount=1;
 r = false;

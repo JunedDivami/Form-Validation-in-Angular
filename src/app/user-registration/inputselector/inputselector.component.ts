@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChange } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms'
 
 @Component({
@@ -8,11 +8,26 @@ import {FormControl, FormGroup, Validators} from '@angular/forms'
 })
 export class InputselectorComponent {
   @Input() ind:number = 0;
-  @Output() sendAdditionalValue = new EventEmitter<string>();
+  buttonCount:number = 1;
+  @Output() sendAdditionalValue = new EventEmitter<any>();
+
+  ngOnChanges(changes: { [property: string]: SimpleChange }) {
+    // Extract changes to the input property by its name
+    let change: SimpleChange = changes['ind']; 
+    console.log("display functionality is working"+ changes['ind'].currentValue);
+    this.buttonCount = changes['ind'].currentValue;
+  }
+
+index:number = 0;
 option:string = 'Number';
 // input:string = '';
 AdditionalValueError = '';
-AdditionalDataArray:any = [];
+//AdditionalDataArray:any = [];
+
+sendObject:any = {
+  value : "",
+  index : 0
+};
 
 numValidate:any = "^[0-9]*$";
 stringValidate = "^[a-zA-Z ]+$";
@@ -24,18 +39,22 @@ hexValidate = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{6})$"
     AdditionalValue: new FormControl("")
   })
 
-  onFocusOut(inp:any){ // on focus out from input field this function will be triggered
+  onFocusOut(inp:any,index:number){ // on focus out from input field this function will be triggered
     //this.input = inp.target.value; // getting the input value
-    // console.log(this.input);
+    //this.AdditionalDataArray[index] = this.AdditionalValue?.value;
+    this.index = index;
+    this.sendObject.value = this.AdditionalValue?.value;
+    this.sendObject.index = this.index
+    
     this.inputOptionValidating(); // upon input focus out calling the validating function
   }
 
-  AfterSelection(selected_option:any){ // After the option is selected from given options in selector tag, this function will be invoked and gets the selected option value
+  AfterSelection(selected_option:any,index:number){ // After the option is selected from given options in selector tag, this function will be invoked and gets the selected option value
     this.option = selected_option.target.value;
     //this.input = ''; // initially clearing the input field upon option change
     this.AdditionalValue?.clearValidators(); //removing all Validators upon option change
     console.log(this.AdditionalValue?.value);
-    this.AdditionalValue?.setValue('');
+    // this.AdditionalValue?.setValue('');
 
     this.inputOptionValidating(); //upon option change calling the validation function
   }
@@ -76,14 +95,14 @@ hexValidate = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{6})$"
     //sending additional data to be parent component using @output() and EventEmitter
       if(this.AdditionalValue?.['status'] == 'VALID'){
         // console.log("working pass the data");
-        this.sendAdditionalValue.emit(this.AdditionalValue?.value || ""); //emitting the input value which should be send upon true of given if condition
+        this.sendAdditionalValue.emit(this.sendObject); //emitting the input value which should be send upon true of given if condition
       }
-      else{this.sendAdditionalValue.emit('');} // if the status of the form is invalid then the empty string is send to be displayed in parent component
+      //else{this.sendAdditionalValue.emit('');} // if the status of the form is invalid then the empty string is send to be displayed in parent component
     }
     
-    // selectedOption(index:any){
-    //   index.next.focus();
-    // }
+    AddComponentFun(count:number):Array<number>{
+      return Array(count);
+    }
 
   get AdditionalValue() { return this.selectorForm.get('AdditionalValue'); } //passing the Additional Value to this components html to validate the errors and display the error.
 }

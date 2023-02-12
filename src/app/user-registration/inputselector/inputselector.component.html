@@ -1,20 +1,20 @@
 <!-- This is a form contains selector and input which takes specific type of input -->
-<form [formGroup]="selectorForm" class="form" >
-    <!-- <div *ngFor="let n of AddComponentFun(1); let ind=index"> -->
+<form [formGroup]="selectorForm"  >
+    <div *ngFor="let n of AddComponentFun(buttonCount); let ind=index" class="form">
     <!-- <legend>Additional Data</legend> -->
-    <select name="selector" id="selector" (change)="AfterSelection($event)"  >  <!--(keyup.enter)="selectedOption($event)"-->
+    <div>{{ind+1}}.<select name="selector" id="selector" (change)="AfterSelection($event,ind)"  >  <!--(keyup.enter)="selectedOption($event)"-->
         <option value="Number">Number</option>
         <option value="String">String</option>
         <option value="Boolean">Boolean</option>
         <option value="HexaCode">HexaCode</option>
         <option value="Binary">Binary</option>
     </select>
-    <div >
-        <!-- input field to get the additional value  -->
-        <input type="text" formControlName="AdditionalValue" placeholder="Enter Additional value" id={{ind}} (focusout)="onFocusOut($event)" >
-        <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid &&  AdditionalValue.dirty">{{AdditionalValueError}}</div>
-
     </div>
-    <!-- </div> -->
+    <div>
+        <!-- input field to get the additional value  -->
+        <input type="text" formControlName="AdditionalValue" placeholder="Enter Additional value" id={{ind}} (focusout)="onFocusOut($event,ind)" >
+    </div>
+</div>
+<div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid &&  AdditionalValue.dirty">{{AdditionalValueError}}</div>
 </form>
 <!-- <div class="error-text" *ngIf="AdditionalValue && AdditionalValue.invalid && AdditionalValue.touched">Invalid Number</div> -->

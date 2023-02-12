@@ -21,10 +21,10 @@
 
 /* on hovering on this div this styles will be applies */
 div:hover{
-    background-color: black;
+    background-color: rgb(127, 123, 123);
     color: white;
     cursor: pointer;
-    transition-duration: 0.3s;
+    transition-duration: 0.5s;
 }
 
 /* every p contains span so to display data with space-between using it as flex  */

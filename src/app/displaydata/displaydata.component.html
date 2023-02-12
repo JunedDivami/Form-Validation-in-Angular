@@ -15,7 +15,7 @@
 <aside class="main--div__rightAside">
     <div *ngFor="let d of data.AdditionalData let i=index">
 <p><span>Given Label-{{i+1}}: </span><span>{{d}}</span></p>
-<p><span>Given Value-{{i+1}}: </span><span>{{data.AdditionalValue}}</span></p>
+<p><span>Given Value-{{i+1}}: </span><span>{{data.AdditionalValue[i]}}</span></p>
     </div>
 </aside>
 </div>
