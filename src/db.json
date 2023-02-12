@@ -43,6 +43,30 @@
         "10"
       ],
       "id": 2
+    },
+    {
+      "FirstName": "Syed",
+      "LastName": "Juned",
+      "UserName": "Juned08",
+      "Age": 21,
+      "emailid": "juned@divami.com",
+      "Phoneno": "9849915636",
+      "Date": "2023-02-13",
+      "AdditionalData": [
+        "Number",
+        "String",
+        "Boolean",
+        "Color Code",
+        "Binary"
+      ],
+      "AdditionalValue": [
+        "1000",
+        "hello welcome",
+        "True",
+        "#ffffff",
+        "1010"
+      ],
+      "id": 3
     }
   ]
 }
